@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>开放统计</title>
+	<!-- <link type="text/css" href="../../css/iconfont.css" rel="stylesheet"> -->
+<link type="text/css" href="../assets/css/commonn.css" rel="stylesheet">
+<link type="text/css" href="../assets/css/iconfont.css" rel="stylesheet">
+	<link href="../assets/css/statistics.css" rel="stylesheet">
+
+</head>
+<body class="statistics">
+	<div class="header">
+	<div class="wapper cf">
+		<div class="head-logo">
+			<p class="head-logo-t">政务数据开放平台</p>
+			<p class="head-logo-b">Open Goverment Data Platform</p>
+		</div>
+		<div class="head-login">
+			<a href="javascript:;" class="head-login-txt">登录</a>
+			<span>/</span>
+			<a href="../user/register.html">注册</a>
+			<div class="head-login-dis">
+                <em class="jiantou"></em>
+                <h2>登录</h2>
+                <div class="head-login-input">
+                    <span>用户名：</span>
+                    <input id="userName" type="text" name="" placeholder="请输入您的用户名">
+                </div>
+                <div class="head-login-input">
+                    <span>密　码：</span>
+                    <input id="passWord" type="password" name="" placeholder="请输入您的密码">
+                </div>
+                <div class="head-login-input2">
+                    <input id="verification" type="text" name="" onkeyup="keyLogin()">
+                    <img id="verification-img">
+                    <i class="iconfont icon-shuaxin" onclick="User.loginVef()"></i>
+                </div>
+                <div class="head-login-btn"><input type="button" name="" value="登录" id="btnSubmit" onclick="User.loginConfirm()"></div>
+                <div class="login-erroy"></div>
+            </div>
+		</div>
+		<div class="head-user"><a href="../user/info.html" class="head-username"></a> / <a href="javascript:;" onclick="User.signOut()">退出登录</a></div>
+		<ul class="nav">
+			<li class="index"><a href="../index/index.html">首页</a></li>
+			<li class="catalog ding-yi-yi-ge-class"><a href="../catalog/index.html">资源目录</a></li>
+			<li class="statistics ding-yi-yi-ge-class"><a href="../statistics/index.html">开放统计</a></li>
+			<li class="helpexchange"><a href="../helpexchange/index.html">互助交流</a></li>
+		</ul>
+	</div>
+</div>
+	<div class="statistics-wrap">
+        <div class="light-wrap"></div>
+		<div class="content-wrap">
+			<div class="statistic-line">
+				<ul class="clearfix">
+					<li class="com-con statistic-item">
+						<div class="item-wrap clearfix">
+							<div class="ico-wrap visited fl"></div>
+							<div class="details-wrap fl">
+								<p class="item-num visit-num">0</p>
+								<p class="item-txt">平台访问次数</p>
+							</div>
+						</div>
+					</li>
+					<li class="com-con statistic-item">
+						<div class="item-wrap clearfix">
+							<div class="ico-wrap download fl"></div>
+							<div class="details-wrap fl">
+								<p class="item-num download-num">0</p>
+								<p class="item-txt">数据下载次数</p>
+							</div>
+						</div>
+					</li>
+					<li class="com-con statistic-item">
+						<div class="item-wrap clearfix">
+							<div class="ico-wrap api-call fl"></div>
+							<div class="details-wrap fl">
+								<p class="item-num api-num">0</p>
+								<p class="item-txt">API调用次数</p>
+							</div>
+						</div>
+					</li>
+					<li class="com-con statistic-item">
+						<div class="item-wrap clearfix">
+							<div class="ico-wrap catalog-num fl"></div>
+							<div class="details-wrap fl">
+								<p class="item-num directory-total-num">0</p>
+								<p class="item-txt">数据目录总量</p>
+							</div>
+						</div>
+					</li>
+					<li class="com-con statistic-item last-item">
+						<div class="item-wrap clearfix">
+							<div class="ico-wrap api-service fl"></div>
+							<div class="details-wrap fl">
+								<p class="item-num api-service-num">0</p>
+								<p class="item-txt">API服务总量</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div id="origin-chart" class="origin-chart">
+                <div class="chart-wrap">
+				    <div id="chart-map" class="statistics-map"></div>
+                </div>
+
+				<div class="clearfix">
+					<div class="fl">
+						<div class="clearfix">
+							<div class="charts-box chart1 fl">
+								<div class="title">注册类型分析</div>
+								<div id="chart1"></div>
+							</div>
+							<div class="charts-box chart1 fl">
+								<div class="title">平台访问历史</div>
+								<div id="chart2"></div>
+							</div>
+						</div>
+						<div class="charts-box chart2">
+							<div class="title">数据开放统计</div>
+							<div class="tab">
+								<ul>
+									<li class="active" onclick="initOpenChart('4')">基础</li>
+									<li onclick="initOpenChart('1')">主题</li>
+									<li onclick="initOpenChart('2')">部门</li>
+									<li onclick="initOpenChart('3')">地方</li>
+								</ul>
+							</div>
+							<div id="chart3"></div>
+						</div>
+					</div>
+					<div class="fr">
+						<div class="charts-box chart3">
+							<div class="title">访问次数</div>
+							<div id="chart4"></div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix">
+					<div class="charts-box chart4 fl">
+						<div class="title">部门数据Top10</div>
+						<div id="chart5"></div>
+					</div>
+					<div class="charts-box chart4 fr">
+						<div class="title">数据更新统计</div>
+						<div id="chart6"></div>
+					</div>
+				</div>
+				<div class="clearfix">
+					<div class="charts-box chart5 fl">
+						<div class="title">数据下载Top10</div>
+						<div id="chart7"></div>
+					</div>
+					<div class="charts-box chart5 fr">
+						<div class="title">API访问Top10</div>
+						<div id="chart8"></div>
+					</div>
+				</div>
+			</div>
+			<div class="visit-wrap"></div>
+			<div class="top-wrap"></div>
+		</div>
+	</div>
+	<div class="footer-margin"></div>
+<div class="footer">
+	<div class="footer-t">
+		<p class="footer-t1">
+			<a href="#">友情链接</a>
+			<span>|</span>
+			<a href="#">服务条款</a>
+			<span>|</span>
+			<a href="#">隐私政策</a>
+			<span>|</span>
+			<a href="#">版权声明</a>
+			<span>|</span>
+			<a href="#">关于我们</a>
+		</p>
+		<p class="footer-t2">
+			<span>主办单位：XXX人民政府</span>
+			<span>承办单位：XXX经济和信息化委员会</span>
+			<span>技术支持：九次方大数据信息集团有限公司</span>
+		</p>
+	</div>
+	<div class="footer-b">备案编号：XXXXXXXXXXXXX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建议使用1920X1080分辨率  IE9.0以上版本浏览器</div>
+</div>
+</body>
+<!--IE8只能支持jQuery1.9-->
+<script src="http://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
+<script src="../assets/js/common/supportIE.js"></script>
+<script src="../assets/js/common/handlebars.js"></script>
+<script src="../assets/js/common/common.js"></script>
+<script src="../assets/js/common/geoConfig.js"></script>
+<script src="../assets/js/common/echarts.min.js"></script>
+<!--[if IE 8]> 
+<script src="https://cdn.staticfile.org/echarts/3.5.0/echarts.min.js"></script>
+<![endif]-->
+<script src="../assets/js/common/china-map.js"></script>
+<script src="../assets/js/statistics/index.js"></script>
+</html>

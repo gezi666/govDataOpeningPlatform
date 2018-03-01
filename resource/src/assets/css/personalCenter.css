@@ -1,0 +1,139 @@
+.input-box{
+    width: 520px;
+    margin: 60px auto;
+}
+.list-con {
+    width: 960px;
+    min-height: 623px;
+    background-color: #fff;
+}
+.form-box {
+    padding: 20px;
+    min-height: 550px;
+}
+.form-box label {
+    color:#6a6a6a;
+    font-weight: 500;
+}
+.form-box input {
+    background-color: #f5f5f5;
+}
+.form-box label span {
+    color: red;
+    margin-right: 3px;
+}
+.form-box .btn-confirm{
+    background-color: #0092ff;
+    color: #fff;
+    margin: 60px auto;
+    width: 105px;
+    display: block;
+}
+/*搜索框*/
+.search-box{
+    width: 480px;
+    height: 35px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+}
+.search-box input{
+    width: 440px;
+    height: 33px;
+    float: left;
+    border: none;
+    margin-right: 10px;
+}
+.search-box i{
+    width: 20px;
+    float: left;
+    color: #6fb3ec;
+    font-size: 18px;
+    line-height: 36px;
+    cursor: pointer;
+}
+/*表单*/
+.table {
+    border: 1px solid #c2c6cc;
+    border-radius: 3px
+}
+
+.table thead td {
+    border-bottom: 1px solid #e2e2e2;
+    min-width: 80px;
+}
+.table thead tr {
+    box-sizing: border-box;
+    height: 40px;
+    border-bottom: 1px solid #d0d2d7;
+    background: #f1f1f1;
+}
+.table tbody tr.even {
+    background: #f6f6f6;
+}
+.table tbody tr a{
+    cursor: pointer;
+}
+.table tbody tr td{
+    word-break: break-all;
+}
+/*分页*/
+.pagination{
+    margin:0px;
+}
+/*.pagination li {
+    float: left;
+    display: inline-block;
+    line-height: 25px;
+    font-size: 12px;
+}
+.pagination li span{
+    line-height:27px;
+    color:#5e6c7e;
+}
+.pagination li.item a{
+    display:inline-block;
+    width:32px;
+    height:25px;
+    color:#5e6c7e;
+    text-align:center;
+    border:1px solid #c3c7cf;
+    margin-left:-1px;
+    text-decoration: none;
+}
+.pagination li.confirm a{
+    text-decoration: none;
+}
+.pagination .item.first a{
+    border-radius: 5px 0 0 5px;
+    margin-left:10px;
+}
+.pagination .item.last a{
+    border-radius: 0 5px 5px 0;
+    margin-right:10px;
+}
+.pagination .btn-queding{
+    display:inline-block;
+    float:right;
+    width:56px;
+    height:25px;
+    line-height:25px;
+    border:1px solid #afc9ee;
+    border-radius:3px;
+    background:#edf5ff;
+    text-align:center;
+    color:#5e6c7d;
+    font-size:12px;
+}
+.pagination li a:hover {
+    background: #d6e7fd;
+}*/
+.sum-box {
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+}
+.sum-box span {
+    color: red;
+}

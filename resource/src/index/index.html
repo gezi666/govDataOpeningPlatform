@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" type="text/css" href="../assets/css/index.css">
+	<title>首页</title>
+	@@include('../components/css.html')
+</head>
+<body class="index">
+@@include('../components/header.html')
+
+<div class="banner">
+	<div class="wapper clearfix">
+		<ul id="banner" class="banner-data"></ul>
+		<script id="banner-template" type="text/x-handlebars-template">
+            <li>
+				<p class="banner-data-num"><span>{{total}}</span></p>
+				<p class="banner-data-txt">开放信息资源(条)</p>
+			</li>
+			<li>
+				<p class="banner-data-num"><span>{{fileTotal}}</span></p>
+				<p class="banner-data-txt">开放文件数量(个)</p>
+			</li>
+			<li>
+				<p class="banner-data-num"><span>{{apiTotal}}</span></p>
+				<p class="banner-data-txt">开放API接口(个)</p>
+			</li>
+			<li>
+				<p class="banner-data-num"><span>{{deptTotal}}</span></p>
+				<p class="banner-data-txt">开放数据部门(个)</p>
+			</li>
+		</script>
+		<div class="banner-seach clearfix">
+			<input type="text" name="" class="seach-input" onkeyup="btnSearch()">
+			<i class="iconfont icon-chaxun seach-btn"></i>
+		</div>
+	</div>
+</div>
+
+<div class="index-tab-tit">
+	<ul>
+		<li class="nth1 active">基础信息</li>
+		<li class="nth2">主题资源 </li>
+		<li class="nth3">部门资源</li>
+		<li class="nth4">地方资源</li>
+	</ul>
+</div>
+<div class="index-tab-cont-box">
+	<div class="wapper">
+		<div class="index-tab-cont">
+			<div id="basiclist" class="index-tab index-tab-4">
+				<ul>
+		            <li class="basic basic-item0">
+						<div class="index-tab-txt">
+							<p class="index-theme1">--</p>
+							<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="">查看资源</a></div>
+					</li>
+					<li class="second">
+						<div class="basic  basic-item1 inner-wrap up">
+							<div class="index-tab-txt">
+								<p class="index-theme1">--</p>
+								<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+							</div>
+							<div class="index-tab-dis"><a href="">查看资源</a></div>
+						</div>
+						<div class="basic basic-item2 inner-wrap down">
+							<div class="index-tab-txt">
+								<p class="index-theme1">--</p>
+								<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+							</div>
+							<div class="index-tab-dis"><a href="">查看资源</a></div>
+						</div>
+					</li>
+					<li class="basic basic-item3">
+						<div class="index-tab-txt">
+							<p class="index-theme1">--</p>
+							<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="">查看资源</a></div>
+					</li>
+					<li class="basic basic-item4">
+						<div class="index-tab-txt">
+							<p class="index-theme1">--</p>
+							<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="">查看资源</a></div>
+					</li>
+		        </ul>
+		        <div class="index-tab-btn"><a href="../catalog/index.html?type=0">全部信息</a></div>
+	        </div>
+			<div id="themelist" class="index-tab index-tab-1 other-tab"></div>
+			<script id="themelist-template" type="text/x-handlebars-template">
+				<ul>
+		            {{#each this}}
+		            <li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img{{random13 @index}}.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">{{name}}</p>
+							<p class="index-theme2">资源总量：<span>{{count}}条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=1&code={{code}}">查看资源</a></div>
+					</li>
+		            {{/each}}
+		        </ul>
+		        <div class="index-tab-btn"><a href="../catalog/index.html?type=1">全部主题</a></div>
+	        </script>
+			<div id="departmentlist" class="index-tab index-tab-2 other-tab"></div>
+			<script id="departmentlist-template" type="text/x-handlebars-template">
+				<ul>
+		            {{#each this}}
+		            <li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img{{random13 @index}}.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">{{name}}</p>
+							<p class="index-theme2">资源总量：<span>{{count}}条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=2&code={{code}}">查看资源</a></div>
+					</li>
+		            {{/each}}
+		        </ul>
+		        <div class="index-tab-btn"><a href="../catalog/index.html?type=2">全部部门</a></div>
+	        </script>
+			<div id="basisinfolist" class="index-tab index-tab-3 other-tab"></div>
+			<script id="basisinfolist-template" type="text/x-handlebars-template">
+				<ul>
+		            {{#each this}}
+		            <li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img{{random13 @index}}.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">{{name}}</p>
+							<p class="index-theme2">资源总量：<span>{{count}}条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&code={{code}}">查看资源</a></div>
+					</li>
+		            {{/each}}
+		        </ul>
+		        <div class="index-tab-btn"><a href="../catalog/index.html?type=3">全部地方</a></div>
+	        </script>
+		</div>
+	</div>
+</div>
+
+<div class="index-data">
+	<div class="wapper">
+		<ul id="access"></ul>
+		<script id="access-template" type="text/x-handlebars-template">
+			<li>
+				<p class="index-data1">{{total}}</p>
+				<p class="index-data2">接入信息资源</p>
+			</li>
+			<li>
+				<p class="index-data1">{{dataTotal}}</p>
+				<p class="index-data2">接入数据量</p>
+			</li>
+			<li>
+				<p class="index-data1">{{areaTotal}}</p>
+				<p class="index-data2">覆盖领域</p>
+			</li>
+			<li>
+				<p class="index-data1">{{deptTotal}}</p>
+				<p class="index-data2">涉及职能部门</p>
+			</li>
+		</script>
+	</div>
+</div>
+
+<div class="index-list">
+	<div class="wapper clearfix">
+		<div id="newresources" class="index-list-module"></div>
+		<script id="newresources-template" type="text/x-handlebars-template">
+			<h3>
+				<span>最新资源</span>
+				<a href="../catalog/index.html?sort=0">更多>></a>
+			</h3>
+			<ul>
+				{{#each this}}
+				<li>
+					<a href="../catalog/details.html?id={{id}}" title="{{absractinfo}}">{{absractinfo}}</a>
+					<span>{{createtime}}</span>
+				</li>
+				{{/each}}
+			</ul>
+        </script>
+		<div id="hotresources" class="index-list-module"></div>
+		<script id="hotresources-template" type="text/x-handlebars-template">
+			<h3>
+				<span>热门资源</span>
+				<a href="../catalog/index.html?sort=1">更多>></a>
+			</h3>
+			<ul>
+				{{#each this}}
+				<li>
+					<a href="../catalog/details.html?id={{id}}" title="{{absractinfo}}">{{absractinfo}}</a>
+					<span>{{createtime}}</span>
+				</li>
+				{{/each}}
+			</ul>
+        </script>
+		<div id="recommresources" class="index-list-module lastchild"></div>
+		<script id="recommresources-template" type="text/x-handlebars-template">
+			<h3>
+				<span>推荐资源</span>
+				<a href="../catalog/index.html?sort=2">更多>></a>
+			</h3>
+			<ul>
+				{{#each this}}
+				<li>
+					<a href="../catalog/details.html?id={{id}}" title="{{absractinfo}}">{{absractinfo}}</a>
+					<span>{{createtime}}</span>
+				</li>
+				{{/each}}
+			</ul>
+        </script>
+	</div>
+</div>
+
+@@include('../components/footer.html')
+</body>
+@@include('../components/js.html')
+<script src="../assets/js/index/index.js"></script>
+</html>

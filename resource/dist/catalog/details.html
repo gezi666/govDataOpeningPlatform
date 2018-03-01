@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>资源详情</title>
+    <!-- <link type="text/css" href="../../css/iconfont.css" rel="stylesheet"> -->
+<link type="text/css" href="../assets/css/commonn.css" rel="stylesheet">
+<link type="text/css" href="../assets/css/iconfont.css" rel="stylesheet">
+    <link href="../assets/css/catalog.css" rel="stylesheet">
+</head>
+
+<body class="catalog">
+<div class="header">
+	<div class="wapper cf">
+		<div class="head-logo">
+			<p class="head-logo-t">政务数据开放平台</p>
+			<p class="head-logo-b">Open Goverment Data Platform</p>
+		</div>
+		<div class="head-login">
+			<a href="javascript:;" class="head-login-txt">登录</a>
+			<span>/</span>
+			<a href="../user/register.html">注册</a>
+			<div class="head-login-dis">
+                <em class="jiantou"></em>
+                <h2>登录</h2>
+                <div class="head-login-input">
+                    <span>用户名：</span>
+                    <input id="userName" type="text" name="" placeholder="请输入您的用户名">
+                </div>
+                <div class="head-login-input">
+                    <span>密　码：</span>
+                    <input id="passWord" type="password" name="" placeholder="请输入您的密码">
+                </div>
+                <div class="head-login-input2">
+                    <input id="verification" type="text" name="" onkeyup="keyLogin()">
+                    <img id="verification-img">
+                    <i class="iconfont icon-shuaxin" onclick="User.loginVef()"></i>
+                </div>
+                <div class="head-login-btn"><input type="button" name="" value="登录" id="btnSubmit" onclick="User.loginConfirm()"></div>
+                <div class="login-erroy"></div>
+            </div>
+		</div>
+		<div class="head-user"><a href="../user/info.html" class="head-username"></a> / <a href="javascript:;" onclick="User.signOut()">退出登录</a></div>
+		<ul class="nav">
+			<li class="index"><a href="../index/index.html">首页</a></li>
+			<li class="catalog ding-yi-yi-ge-class"><a href="../catalog/index.html">资源目录</a></li>
+			<li class="statistics ding-yi-yi-ge-class"><a href="../statistics/index.html">开放统计</a></li>
+			<li class="helpexchange"><a href="../helpexchange/index.html">互助交流</a></li>
+		</ul>
+	</div>
+</div>
+<div class="main">
+	<div class="content-wrap clearfix">
+		<div class="indexes clearfix">
+	        <div class="crumb fl">
+	            当前位置：
+	            <a class="to-page" href="../index/index.html" title='返回首页'>首页</a>&nbsp;&gt;&nbsp;<a class="to-page" href="./index.html" title='返回资源目录'>资源目录</a>&nbsp;&gt;&nbsp;资源详情
+	        </div>
+	        <!-- <div class="search-con fr clearfix">
+	            <input class="search-txt fl" type="text" placeholder="请输入信息资源名称">
+	            <span class="search-btn fr" onclick=''>
+	                <i class="search-ico iconfont icon-chaxun"></i>
+	            </span>
+	        </div> -->
+	    </div>
+		<div class="resources-details-wrap">
+			<div class="base-info-wrap clearfix">
+				<div class="logo-wrap fl"></div>
+				<div id='info-resources' class="info-wrap fl clearfix">
+					<p class="info-name">--</p>
+	                <div class="base-wrap fl">
+	                    <ul class="info-resources">
+	                    	<li class="first-line clearfix">
+	                    		<div class="left-item-wrap">
+		                            <span class="info-label">信息资源提供方：</span>
+		                            <span class="info-value second-col provider" title=''>--</span>
+	                            </div>
+	                            <div class="right-item-wrap right-catalog">
+		                            <span class="info-label">信息资源目录：</span>
+		                            <span class="info-value resource-catalog" title=''>--</span>
+	                            </div>
+	                        </li>
+	                        <li class="clearfix">
+	                        	<div class="left-item-wrap">
+		                            <span class="info-label">数据总量：</span>
+		                            <span class="info-value"><span class="count">0</span>条</span>
+	                            </div>
+	                            <div class="right-item-wrap">
+	                            	<div class="inner-left-wrap shared-type">
+			                            <span class="info-label">共享方式：</span>
+			                            <span class="info-value shared">--</span>
+		                        	</div>
+		                        	<div class="inner-right-wrap">
+			                            <span class="info-label">发布时间：</span>
+			                            <span class="info-value publish">--</span>
+		                            </div>
+	                            </div>
+	                        </li>
+	                    </ul>
+	                </div>
+	            </div>
+			</div>
+			<div class="tab-wrap">
+				<div class="tab-line">
+					<ul class="tab-menu clearfix">
+						<li class="tab-item menu-base active">基本信息</li>
+						<li class="tab-item menu-data">信息项</li>
+						<li class="tab-item">文件下载</li>
+						<li class="tab-item">API服务</li>
+					</ul>
+				</div>
+				<div class="details-con">
+					<div class="info-item base-info clearfix">
+						<div class="left-wrap fl">
+	                        <div class="left-wrap-item">
+								<p class="left-item-title">目录简介</p>
+								<p class="catalog-summary">--</p>
+							</div>
+							<div class="left-wrap-item">
+								<p class="left-item-title">目录统计</p>
+								<div class="catalog-statistics clearfix">
+									<p class="statistics-item fl">访问量：<span class="statistics-count visit-num">0</span>次</p>
+									<p class="statistics-item use-count fl">下载量：<span class="statistics-count download-num">0</span>次</p>
+									<p class="statistics-item fl">调用量：<span class="statistics-count use-num">0</span>次</p>
+								</div>
+							</div>
+							<div class="left-wrap-item chart-item">
+								<div class="left-item-title clearfix">
+									<span>图表统计</span>
+									<div class="time-wrap fr clearfix">
+											<input class="select-time my-Wdate fl" readonly="readonly" type="text" placeholder="请选择起始时间" id="d1" onblur='hasDate(this)' onclick="WdatePicker({minDate:'#F{$dp.$D(\'d2\',{d:-365});}',maxDate:'#F{$dp.$D(\'d2\',{d:-6})||\'%y-%M-{%d-6}}\'}'})"/>
+											<span class="time-slide fl">--</span>
+											<input class="select-time my-Wdate fl" readonly="readonly" type="text" placeholder="请选择截止时间" id="d2" onblur='hasDate(this)' onclick="WdatePicker({minDate:'#F{$dp.$D(\'d1\',{d:6});}',maxDate:'%y-%M-%d'})"/>
+										<button class="btn time-confirm fl">确定</button>
+									</div>
+								</div>
+								<div class="chart-wrap" id='statistics-chart'></div>
+							</div>
+						</div>
+						<div class="right-wrap fr">
+							<div class="right-item label-wrap">
+								<p class="right-item-label label-title"><i class="iconfont icon-biaoqian"></i>目录标签</p>
+								<ul id = "label-list" class="label-list clearfix">
+									
+								</ul>
+							</div>
+							<div class="right-item related-directory-wrap">
+								<p class="right-item-label directory-title"><i class="iconfont icon-mulu"></i>相关数据目录</p>
+								<ul class="directory-list" id="dataCatalog"></ul>
+								<script id="dataCatalog-template" type="text/x-handlebars-template">
+									{{#if data}}
+									{{#each data}}
+									<li class="directory-list-item"><a href="./details.html?id={{id}}">{{name}}</a></li>
+									{{/each}}
+									{{else}}
+									<li>暂无数据</li>
+									{{/if}}
+								</script>
+							</div>
+						</div>
+					</div>
+					<div class="info-item data-item dn">
+						<p class="inner-tab clearfix">
+							<span class="inner-tab-item info-preview active">信息项预览</span>
+						</p>
+						<div class="info-item-wrap">
+							<table class="table" cellspacing="0">
+			                   <thead>
+			                        <tr>
+			                            <td>序号</td>
+			                            <td class="item-name">信息项名称</td>
+			                            <td>数据类型</td>
+			                            <td>数据长度</td>
+			                            <td>共享类型</td>
+			                            <td>共享条件</td>
+			                            <td>是否向社会开放</td>
+			                            <td>开放条件</td>
+			                            <td>更新周期</td>
+			                        </tr>
+			                    </thead>
+			                    <tbody id='info-item-table'>
+			                    </tbody>
+			                </table>
+							<script id="info-item-table-template" type="text/x-handlebars-template">
+								{{#if data}}
+								{{#with data}}
+			                        {{#each this}}
+				                        <tr class="{{isEven @index}}">
+				                            <td>{{addOne @index}}</td>
+				                            <td class="item-name">{{name}}</td>
+				                            <td>{{datatypename}}</td>
+				                            <td>{{datalength}}</td>
+				                            <td>{{sharingtype}}</td>
+				                            <td>{{sharingcondition}}</td>
+				                            <td class="whether-open {{isActive isopen}}"><i class="iconfont icon-baoliu"></i></td>
+				                            <td>{{opencondition}}</td>
+				                            <td>{{updatecyclename}}</td>
+				                        </tr>
+			                        {{/each}}
+		                        {{/ with}}
+		                        {{else}}
+		                        	<tr>
+		                        		<td colspan="9">
+		                        			<p class="no-server">
+			                            		<span class="no-server-txt">暂无数据</span>
+			                            	</p>
+		                        		</td>
+		                        	</tr>
+		                        {{/if}}
+		                    </script>
+	                    </div>
+	                    <div class="data-item-wrap dn">
+	                    	<div class="logined">
+	                    		<div class="mis-matching dn">
+		                    		<p class="no-server">
+		                        		<span class="no-server-txt">暂无数据</span>
+		                        	</p>
+		                    	</div>
+		                    	<div class="matching">
+		                    		<div class="undocking dn">
+										<span class="no-server-txt">数据资源尚未对接完成，请耐心等待或联系相关信息提供部门！</span>
+									</div>
+									<div class="unsubscribe dn">
+										<span class="no-server-txt">
+											您还未订阅该信息资源，成功订阅后后可以查看！ 
+											<span class="toapply" onclick='toApply()'>点击申请订阅</span>
+										</span>
+									</div>
+									<div class="normal">
+										<table id='data-item-table' class="table" cellspacing="0"></table>
+										<script id="data-item-table-template" type="text/x-handlebars-template">
+											{{#if data}}
+												<thead>
+							                        <tr>
+							                        	{{#each thList}}
+							                            <td>{{this}}</td>
+							                            {{/each}}
+							                        </tr>
+							                    </thead>
+						                        <tbody>
+						                        	{{#each tdList}}
+							                        <tr class="{{isEven @index}}">
+							                        	{{#each this}}
+							                            <td>{{this}}</td>
+							                        	{{/each}}
+							                        </tr>
+							                        {{/each}}
+						                        </tbody>
+					                        {{else}}
+					                        	<tr class="no-data">
+					                        		<td colspan="9">
+					                        			<p class="no-server">
+						                            		<span class="no-server-txt">暂无数据</span>
+						                            	</p>
+					                        		</td>
+					                        	</tr>
+					                        {{/if}}
+					                    </script>
+					                    <div class="page-wrap clearfix">
+							                <div class="pagination fr clearfix"></div>
+							                <span class="total-count fr">共0页，每页0条</span>
+							            </div>
+									</div>
+	                    		</div>
+	                		</div>
+	                    	<div class="unlogin dn">
+								<span class="no-server-txt">尚未登录，请登录后查看！</span>
+							</div>
+	                    </div>
+					</div>
+					<div class="info-item file-download clearfix dn">
+						<div class="logined">
+							<div class="mis-matching dn">
+		                		<p class="no-server">
+		                    		<span class="no-server-txt">暂无数据</span>
+		                    	</p>
+		                	</div>
+		                	<div class="matching">
+								<div class="undocking dn">
+									<span class="no-server-txt">数据资源尚未对接完成，请耐心等待或联系相关信息提供部门！</span>
+								</div>
+								<div class="unsubscribe dn">
+									<span class="no-server-txt">
+										您还未订阅该信息资源，成功订阅后后可以查看！ 
+										<span class="toapply" onclick='toApply()'>点击申请订阅</span>
+									</span>
+								</div>
+								<div class="normal download-table-wrap">
+									<table id="download-table" class="table" cellspacing="0"></table>
+									<script id="download-table-template" type="text/x-handlebars-template">
+					                    <thead>
+					                        <tr>
+					                            <td>文件名称</td>
+					                            <td>发布时间</td>
+					                            <td>下载量</td>
+					                            <td>文件下载</td>
+					                        </tr>
+					                    </thead>
+					                    <tbody>
+					                    	{{#if data}}
+					                    	{{#each data}}
+					                    	<tr class="{{isEven @index}}">
+					                            <td>{{column_name}}</td>
+					                            <td>{{create_time}}</td>
+					                            <td>{{downloadcount}}</td>
+					                            <td><a class="download" href="{{path}}/resCatalog/download?filepath={{toEncode column_value}}&name={{column_name}}&id={{catalog_resource_id}}&fileDownloadTsourceinfoID={{fileDownloadTsourceinfoID}}">下载</a></td>
+					                        </tr>
+					                        {{/each}}
+					                        {{else}}
+					                        <tr class="no-data-line">
+					                            <td colspan="6">
+					                            	<p class="no-server">
+					                            		<span class="no-server-txt">暂无数据</span>
+					                            	</p>
+					                            </td>
+					                        </tr>
+					                        {{/if}}
+					                    </tbody>
+					                </script>
+					                <div class="page-wrap clearfix">
+						                <div class="pagination fr clearfix"></div>
+						                <span class="total-count fr">共0页，每页0条</span>
+						            </div>
+								</div>
+							</div>
+						</div>
+						<div class="unlogin dn">
+							<span class="no-server-txt">尚未登录，请登录后查看！</span>
+						</div>
+					</div>
+					<div class="info-item api-service clearfix dn">
+						<div class="logined">
+							<div class="mis-matching dn">
+		                		<p class="no-server">
+		                    		<span class="no-server-txt">暂无数据</span>
+		                    	</p>
+		                	</div>
+		                	<div class="matching">
+								<div class="undocking dn">
+									<span class="no-server-txt">数据资源尚未对接完成，请耐心等待或联系相关信息提供部门！</span>
+								</div>
+								<div class="unsubscribe dn">
+									<span class="no-server-txt">
+										您还未订阅该信息资源，成功订阅后后可以查看！ 
+										<span class="toapply" onclick='toApply()'>点击申请订阅</span>
+									</span>
+								</div>
+								<div class="normal api-normal">
+									<div id="api-info" class="api-info"></div>
+									<script id="api-info-template" type="text/x-handlebars-template">
+										<div class="api-interface">
+											<p class="summary">API接口服务信息</p>
+											<table class="info-table">
+												{{#if serverlist}}
+													{{#each serverlist}}
+													<tr>
+														<td class="first-col">服务名称：</td>
+														<td>{{ws_name}}</td>
+													</tr>
+													<tr>
+														<td class="first-col">服务描述：</td>
+														<td>{{ws_describe}}</td>
+													</tr>
+													<tr>
+														<td class="first-col">服务地址：</td>
+														<td>{{ws_url}}</td>
+													</tr>
+													<tr>
+														<td class="first-col">服务方法：</td>
+														<td>{{ws_mtd}}</td>
+													</tr>
+													<tr>
+														<td class="first-col">服务类型：</td>
+														<td>{{ws_type}}</td>
+													</tr>
+													<tr>
+														<td class="first-col">命名空间：</td>
+														<td>{{ws_nsp}}</td>
+													</tr>
+													{{/each}}
+												{{else}}
+													<tr>
+														<td class="no-return" colspan="2">暂无数据</td>
+													</tr>
+												{{/if}}
+											</table>
+										</div>
+										<div class="request-header">
+											<p class="summary">请求信息</p>
+											{{#if serverlist}}
+												{{#each serverlist}}
+												<p class="request-info">{{ws_soap_aq}}</p>
+												{{/each}}
+											{{else}}
+												<p class="request-info no-return">暂无数据</p>
+											{{/if}}
+										</div>
+										<div class="request-header">
+											<p class="summary">响应信息</p>
+											{{#if serverlist}}
+												{{#each serverlist}}
+												<p class="react-info">{{ws_soap_ap}}</p>
+												{{/each}}
+											{{else}}
+												<p class="request-info no-return">暂无数据</p>
+											{{/if}}
+										</div>
+										<div class="request-params">
+											<p class="summary">请求参数</p>
+											<table id="request-params" class="info-table">
+												<thead>
+													<tr>
+														<td>名称</td>
+														<td>类型</td>
+														<td>长度</td>
+														<td>是否必填</td>
+														<td>默认值</td>
+													</tr>
+												</thead>
+												<tbody>
+													{{#if paramlist}}
+													{{#each paramlist}}
+													<tr>
+														<td>{{PARAM_NAME}}</td>
+														<td>{{PARAM_TYPE}}</td>
+														<td>{{PARAM_LENGTH}}</td>
+														<td>{{whether ISREQUIRED}}</td>
+														<td>{{DFTVALUE}}</td>
+													</tr>
+													{{/each}}
+													{{else}}
+													<tr>
+														<td class="no-return"
+														 colspan="5">暂无数据</td>
+													</tr>
+													{{/if}}
+												</tbody>
+											</table>
+										</div>
+										<div class="return-params">
+											<p class="summary">返回参数</p>
+											<table id="return-params" class="info-table">
+												<thead>
+													<tr>
+														<td>名称</td>
+														<td>类型</td>
+														<td>长度</td>
+														<td>是否为空</td>
+														<td>节点ID</td>
+														<td>父节点ID</td>
+													</tr>
+												</thead>
+												<tbody>
+													{{#if sponselist}}
+													{{#each sponselist}}
+													<tr>
+														<td>{{RESULT_NAME}}</td>
+														<td>{{RESULT_TYPE}}</td>
+														<td>{{RESULT_LENGTH}}</td>
+														<td>{{whether ISNULLOK}}</td>
+														<td>{{NODEID}}</td>
+														<td>{{PID}}</td>
+													</tr>
+													{{/each}}
+													{{else}}
+														<tr>
+															<td class="no-return" colspan="6">暂无数据</td>
+														</tr>
+													{{/if}}
+												</tbody>
+											</table>
+										</div>
+									</script>
+								</div>
+							</div>
+						</div>
+						<div class="unlogin dn">
+							<span class="no-server-txt">尚未登录，请登录后查看！</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer-margin"></div>
+<div class="footer">
+	<div class="footer-t">
+		<p class="footer-t1">
+			<a href="#">友情链接</a>
+			<span>|</span>
+			<a href="#">服务条款</a>
+			<span>|</span>
+			<a href="#">隐私政策</a>
+			<span>|</span>
+			<a href="#">版权声明</a>
+			<span>|</span>
+			<a href="#">关于我们</a>
+		</p>
+		<p class="footer-t2">
+			<span>主办单位：XXX人民政府</span>
+			<span>承办单位：XXX经济和信息化委员会</span>
+			<span>技术支持：九次方大数据信息集团有限公司</span>
+		</p>
+	</div>
+	<div class="footer-b">备案编号：XXXXXXXXXXXXX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建议使用1920X1080分辨率  IE9.0以上版本浏览器</div>
+</div>
+</body>
+<!--IE8只能支持jQuery1.9-->
+<script src="http://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
+<script src="../assets/js/common/supportIE.js"></script>
+<script src="../assets/js/common/handlebars.js"></script>
+<script src="../assets/js/common/common.js"></script>
+<script src="../assets/js/common/echarts.min.js"></script>
+<!--[if IE 8]> 
+<script src="https://cdn.staticfile.org/echarts/3.5.0/echarts.min.js"></script>
+<![endif]-->
+<script src="../assets/js/common/My97DatePicker/WdatePicker.js"></script>
+<script src="../assets/js/common/jquery.pagination.js"></script>
+<script src="../assets/js/catalog/details.js"></script>
+</html>

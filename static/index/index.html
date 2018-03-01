@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" type="text/css" href="../assets/css/index.css">
+	<title>首页</title>
+	<!-- <link type="text/css" href="../../css/iconfont.css" rel="stylesheet"> -->
+<link type="text/css" href="../assets/css/commonn.css" rel="stylesheet">
+<link type="text/css" href="../assets/css/iconfont.css" rel="stylesheet">
+</head>
+<body class="index">
+<div class="header">
+	<div class="wapper cf">
+		<div class="head-logo">
+			<p class="head-logo-t">政务数据开放平台</p>
+			<p class="head-logo-b">Open Goverment Data Platform</p>
+		</div>
+		<div class="head-login">
+			<a href="javascript:;" class="head-login-txt">登录</a>
+			<span>/</span>
+			<a href="../user/register.html">注册</a>
+			<div class="head-login-dis">
+                <em class="jiantou"></em>
+                <h2>登录</h2>
+                <div class="head-login-input">
+                    <span>用户名：</span>
+                    <input id="userName" type="text" name="" placeholder="请输入您的用户名">
+                </div>
+                <div class="head-login-input">
+                    <span>密　码：</span>
+                    <input id="passWord" type="password" name="" placeholder="请输入您的密码">
+                </div>
+                <div class="head-login-input2">
+                    <input id="verification" type="text" name="" onkeyup="keyLogin()">
+                    <img id="verification-img">
+                    <i class="iconfont icon-shuaxin" onclick="User.loginVef()"></i>
+                </div>
+                <div class="head-login-btn"><input type="button" name="" value="登录" id="btnSubmit" onclick="User.loginConfirm()"></div>
+                <div class="login-erroy"></div>
+            </div>
+		</div>
+		<div class="head-user"><a href="../user/info.html" class="head-username"></a> / <a href="javascript:;" onclick="User.signOut()">退出登录</a></div>
+		<ul class="nav">
+			<li class="index"><a href="../index/index.html">首页</a></li>
+			<li class="catalog ding-yi-yi-ge-class"><a href="../catalog/index.html">资源目录</a></li>
+			<li class="statistics ding-yi-yi-ge-class"><a href="../statistics/index.html">开放统计</a></li>
+			<li class="helpexchange"><a href="../helpexchange/index.html">互助交流</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="banner">
+	<div class="wapper clearfix">
+		<ul id="banner" class="banner-data">
+			<li>
+				<p class="banner-data-num"><span>13</span></p>
+				<p class="banner-data-txt">开放信息资源(条)</p>
+			</li>
+			<li>
+				<p class="banner-data-num"><span>9</span></p>
+				<p class="banner-data-txt">开放文件数量(个)</p>
+			</li>
+			<li>
+				<p class="banner-data-num"><span>4</span></p>
+				<p class="banner-data-txt">开放API接口(个)</p>
+			</li>
+			<li>
+				<p class="banner-data-num"><span>4</span></p>
+				<p class="banner-data-txt">开放数据部门(个)</p>
+			</li>
+		</ul>
+		<div class="banner-seach clearfix">
+			<input type="text" name="" class="seach-input" onkeyup="btnSearch()">
+			<i class="iconfont icon-chaxun seach-btn" onclick="btnSearch()"></i>
+		</div>
+	</div>
+</div>
+
+<div class="index-tab-tit">
+	<ul>
+		<li class="nth1 active">基础信息</li>
+		<li class="nth2">主题资源 </li>
+		<li class="nth3">部门资源</li>
+		<li class="nth4">地方资源</li>
+	</ul>
+</div>
+<div class="index-tab-cont-box">
+	<div class="wapper">
+		<div class="index-tab-cont">
+			<div id="basiclist" class="index-tab index-tab-4">
+				<ul>
+		            <li class="basic basic-item0">
+						<div class="index-tab-txt">
+							<p class="index-theme1">人口基础信息</p>
+							<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li class="second">
+						<div class="basic  basic-item1 inner-wrap up">
+							<div class="index-tab-txt">
+								<p class="index-theme1">法人单位基础信息</p>
+								<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+							</div>
+							<div class="index-tab-dis"><a href="#">查看资源</a></div>
+						</div>
+						<div class="basic basic-item2 inner-wrap down">
+							<div class="index-tab-txt">
+								<p class="index-theme1">自然资源和空间地里基础信息</p>
+								<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+							</div>
+							<div class="index-tab-dis"><a href="#">查看资源</a></div>
+						</div>
+					</li>
+					<li class="basic basic-item3">
+						<div class="index-tab-txt">
+							<p class="index-theme1">电子证照基础信息</p>
+							<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="#">查看资源</a></div>
+					</li>
+					<li class="basic basic-item4">
+						<div class="index-tab-txt">
+							<p class="index-theme1">社会信用基础信息资源</p>
+							<p class="index-theme2">资源总量：<span class="item-count">0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="#">查看资源</a></div>
+					</li>
+		        </ul>
+		        <div class="index-tab-btn"><a href="../catalog/index.html">全部信息</a></div>
+	        </div>
+			<div id="themelist" class="index-tab index-tab-1 other-tab">
+				<ul>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img7.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">全民健康保障</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img2.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">全民社会保障</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img5.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">药品安全监督</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img10.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">食品安全监管</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img3.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">安全生产监督</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img11.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">市场价格监管</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img6.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">金融监管</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img4.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">能源安全保障</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img10.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">信用体系建设</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img4.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">生态环境保护</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img3.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">应急维稳保障</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img13.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">行政执法监督</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img10.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">民主法治建设</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img4.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">执政能力建设</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img7.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">投资审批</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img1.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">23</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img10.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">全民住房保障</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html">查看资源</a></div>
+					</li>
+				</ul>
+		        <div class="index-tab-btn"><a href="../catalog/index.html">全部主题</a></div>
+			</div>
+			<div id="departmentlist" class="index-tab index-tab-2 other-tab">
+				<ul>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img1.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">国务院</p>
+							<p class="index-theme2">资源总量：<span>9条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=2&amp;code=303">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img5.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">党中央</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=2&amp;code=301">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img8.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">全国人大常委</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=2&amp;code=302">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">全国政协</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=2&amp;code=304">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img5.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">最高人民法院</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=2&amp;code=305">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img4.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">最高人民检察院</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=2&amp;code=306">查看资源</a></div>
+					</li>
+				</ul>
+		        <div class="index-tab-btn"><a href="../catalog/index.html">全部部门</a></div>
+			</div>
+			<div id="basisinfolist" class="index-tab index-tab-3 other-tab">
+				<ul>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img7.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">浙江省</p>
+							<p class="index-theme2">资源总量：<span>1条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307016">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img10.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">北京市</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307001">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">天津市</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307002">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img6.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">河北省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307003">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img11.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">上海市</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307004">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img5.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">重庆市</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307005">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img7.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">山西省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307006">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img2.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">黑龙江省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307007">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img2.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">吉林省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307008">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img8.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">辽宁省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307009">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">陕西省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307010">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img6.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">甘肃省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307011">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img11.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">青海省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307012">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img10.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">山东省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307013">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img6.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">河南省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307014">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img3.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">江苏省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307015">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img4.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">安徽省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307017">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img10.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">江西省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307018">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">福建省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307019">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">湖北省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307020">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img11.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">湖南省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307021">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img5.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">广东省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307022">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">海南省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307023">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img1.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">四川省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307024">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">云南省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307025">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img9.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">贵州省</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307026">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">内蒙古自治区</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307027">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">新疆维吾尔自治区</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307028">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img7.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">宁夏回族自治区</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307029">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img3.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">广西壮族自治区</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307030">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img13.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">西藏自治区</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307031">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img5.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">香港特别行政区</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307032">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img7.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">澳门特别行政区</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307033">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">沈阳市</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307034">查看资源</a></div>
+					</li>
+					<li>
+						<p class="index-tab-img"><img src="../assets/img/index-tab-1-img12.png"></p>
+						<div class="index-tab-txt">
+							<p class="index-theme1">青岛市</p>
+							<p class="index-theme2">资源总量：<span>0条</span></p>
+						</div>
+						<div class="index-tab-dis"><a href="../catalog/index.html?type=3&amp;code=307035">查看资源</a></div>
+					</li>
+				</ul>
+		        <div class="index-tab-btn"><a href="../catalog/index.html">全部地方</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="index-data">
+	<div class="wapper">
+		<ul id="access">
+			<li>
+				<p class="index-data1">0+</p>
+				<p class="index-data2">接入信息资源</p>
+			</li>
+			<li>
+				<p class="index-data1">10,000,000+</p>
+				<p class="index-data2">接入数据量</p>
+			</li>
+			<li>
+				<p class="index-data1">20+</p>
+				<p class="index-data2">覆盖领域</p>
+			</li>
+			<li>
+				<p class="index-data1">0+</p>
+				<p class="index-data2">涉及职能部门</p>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="index-list">
+	<div class="wapper clearfix">
+		<div id="newresources" class="index-list-module">
+			<h3>
+				<span>最新资源</span>
+				<a href="../catalog/index.html">更多>></a>
+			</h3>
+			<ul>
+				<li>
+					<a href="../catalog/details.html?id=94426" title="文件">文件</a>
+					<span>2017-12-05</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94425" title="test">test</a>
+					<span>2017-12-05</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94421" title="公安部文件yanyan">公安部文件yanyan</a>
+					<span>2017-12-01</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94419" title="接口测试">接口测试</a>
+					<span>2017-11-30</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94414" title="浙江省test">浙江省test</a>
+					<span>2017-11-29</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94416" title="能源局测试">能源局测试</a>
+					<span>2017-11-29</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94417" title="能源">能源</a>
+					<span>2017-11-29</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94412" title="公安部">公安部</a>
+					<span>2017-11-28</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94411" title="接口">接口</a>
+					<span>2017-11-28</span>
+				</li>
+				<li>
+					<a href="../catalog/details.html?id=94403" title="公安部文件测试">公安部文件测试</a>
+					<span>2017-11-28</span>
+				</li>
+			</ul>
+		</div>
+		<div id="hotresources" class="index-list-module">
+			<h3>
+				<span>热门资源</span>
+				<a href="../catalog/index.html">更多>></a>
+			</h3>
+			<ul>
+			<li>
+				<a href="../catalog/details.html?id=94412" title="公安部">公安部</a>
+				<span>2017-11-28</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94411" title="接口">接口</a>
+				<span>2017-11-28</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94403" title="公安部文件测试">公安部文件测试</a>
+				<span>2017-11-28</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94367" title="文件测试_yan">文件测试_yan</a>
+				<span>2017-11-17</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94426" title="文件">文件</a>
+				<span>2017-12-05</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94425" title="test">test</a>
+				<span>2017-12-05</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94398" title="文件测试_yan">文件测试_yan</a>
+				<span>2017-11-24</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94414" title="浙江省test">浙江省test</a>
+				<span>2017-11-29</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94421" title="公安部文件yanyan">公安部文件yanyan</a>
+				<span>2017-12-01</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94419" title="接口测试">接口测试</a>
+				<span>2017-11-30</span>
+			</li>
+		</ul>
+		</div>
+		<div id="recommresources" class="index-list-module lastchild">
+			<h3>
+				<span>推荐资源</span>
+				<a href="../catalog/index.html">更多>></a>
+			</h3>
+			<ul>
+			<li>
+				<a href="../catalog/details.html?id=94421" title="公安部文件yanyan">公安部文件yanyan</a>
+				<span>2017-12-01</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94419" title="接口测试">接口测试</a>
+				<span>2017-11-30</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94426" title="文件">文件</a>
+				<span>2017-12-05</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94414" title="浙江省test">浙江省test</a>
+				<span>2017-11-29</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94411" title="接口">接口</a>
+				<span>2017-11-28</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94425" title="test">test</a>
+				<span>2017-12-05</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94398" title="文件测试_yan">文件测试_yan</a>
+				<span>2017-11-24</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94412" title="公安部">公安部</a>
+				<span>2017-11-28</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94416" title="能源局测试">能源局测试</a>
+				<span>2017-11-29</span>
+			</li>
+			<li>
+				<a href="../catalog/details.html?id=94367" title="文件测试_yan">文件测试_yan</a>
+				<span>2017-11-17</span>
+			</li>
+		</ul>
+		</div>
+	</div>
+</div>
+
+<div class="footer-margin"></div>
+<div class="footer">
+	<div class="footer-t">
+		<p class="footer-t1">
+			<a href="#">友情链接</a>
+			<span>|</span>
+			<a href="#">服务条款</a>
+			<span>|</span>
+			<a href="#">隐私政策</a>
+			<span>|</span>
+			<a href="#">版权声明</a>
+			<span>|</span>
+			<a href="#">关于我们</a>
+		</p>
+		<p class="footer-t2">
+			<span>主办单位：XXX人民政府</span>
+			<span>承办单位：XXX经济和信息化委员会</span>
+			<span>技术支持：九次方大数据信息集团有限公司</span>
+		</p>
+	</div>
+	<div class="footer-b">备案编号：XXXXXXXXXXXXX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建议使用1920X1080分辨率  IE9.0以上版本浏览器</div>
+</div>
+</body>
+<!--IE8只能支持jQuery1.9-->
+<script src="//cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
+<script src="../assets/js/common/supportIE.js"></script>
+<script src="../assets/js/common/handlebars.js"></script>
+<script src="../assets/js/common/common.js"></script>
+<script src="../assets/js/index/index.js"></script>
+</html>

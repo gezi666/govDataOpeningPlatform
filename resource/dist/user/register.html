@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>注册</title>
+    <link href="../assets/css/bootstrap.css"rel="stylesheet">
+    <!-- <link type="text/css" href="../../css/iconfont.css" rel="stylesheet"> -->
+<link type="text/css" href="../assets/css/commonn.css" rel="stylesheet">
+<link type="text/css" href="../assets/css/iconfont.css" rel="stylesheet">
+    <link href="../assets/css/userRegister.css" rel="stylesheet">
+</head>
+<body class="index">
+<div class="header">
+	<div class="wapper cf">
+		<div class="head-logo">
+			<p class="head-logo-t">政务数据开放平台</p>
+			<p class="head-logo-b">Open Goverment Data Platform</p>
+		</div>
+		<div class="head-login">
+			<a href="javascript:;" class="head-login-txt">登录</a>
+			<span>/</span>
+			<a href="../user/register.html">注册</a>
+			<div class="head-login-dis">
+                <em class="jiantou"></em>
+                <h2>登录</h2>
+                <div class="head-login-input">
+                    <span>用户名：</span>
+                    <input id="userName" type="text" name="" placeholder="请输入您的用户名">
+                </div>
+                <div class="head-login-input">
+                    <span>密　码：</span>
+                    <input id="passWord" type="password" name="" placeholder="请输入您的密码">
+                </div>
+                <div class="head-login-input2">
+                    <input id="verification" type="text" name="" onkeyup="keyLogin()">
+                    <img id="verification-img">
+                    <i class="iconfont icon-shuaxin" onclick="User.loginVef()"></i>
+                </div>
+                <div class="head-login-btn"><input type="button" name="" value="登录" id="btnSubmit" onclick="User.loginConfirm()"></div>
+                <div class="login-erroy"></div>
+            </div>
+		</div>
+		<div class="head-user"><a href="../user/info.html" class="head-username"></a> / <a href="javascript:;" onclick="User.signOut()">退出登录</a></div>
+		<ul class="nav">
+			<li class="index"><a href="../index/index.html">首页</a></li>
+			<li class="catalog ding-yi-yi-ge-class"><a href="../catalog/index.html">资源目录</a></li>
+			<li class="statistics ding-yi-yi-ge-class"><a href="../statistics/index.html">开放统计</a></li>
+			<li class="helpexchange"><a href="../helpexchange/index.html">互助交流</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="wapper">
+    <div class="breadcrumbs">
+        当前位置：<a class="to-page" href="../index/index.html" title='返回首页'>首页</a>&nbsp;&gt;&nbsp;注册
+    </div>
+    <div class="user-register-box">
+        <div class="clearfix tab-box">
+            <ul class="fl" id="tabBox-ul">
+                <li class="active"><i></i>个人注册</li>
+                <li><i></i>单位注册</li>
+            </ul>
+            <p class="fr"><span>*</span>为必填项,不能为空</p>
+        </div>
+        <div class="clearfix form-box">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>个人登录用户名：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="loginnameID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>登录密码：</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control"  placeholder="" id="loginpasswordID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>确认密码：</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control"  placeholder="" id="loginAffirmpasswordID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="col-sm-9 line-dashed"></p>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>真实姓名：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="realnameID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>移动电话：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="phoneID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">电子邮箱：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="emailID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>验证码：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="authCode">
+                    </div>
+                    <!--  -->
+                    <a class="col-sm-1 verify-box"> <img class="register-verification-img"></a>
+                    <a class="col-sm-2 a-exchange fl" onclick="registerVef()">看不清？换一张</a>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="chkAgree"> 我已阅读并同意<a>《数据开放授权协议》</a>
+                    </label>
+                </div>
+            </form>
+            <div class="btn-line">
+                <div id="peoMsg" class="feedback-error register-left"></div>
+                <button type="button" class="btn btn-primary register-now" onclick="getRegisterData()"><i class="iconfont icon-zhuce1"></i> 立即注册</button>
+            </div>
+        </div>
+        <div class="clearfix form-box dn">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>单位登录用户名：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="loginnameIDinfo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>单位类型：</label>
+                    <div class="col-sm-6">
+                        <select class="form-control"  id="companytypeIDinfo">
+                            <option value="">请选择</option>
+                            <option value="1">社会团体</option>
+                            <option value="2">事业单位</option>
+                            <option value="3">政府</option>
+                            <option value="4">企业</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>单位名称：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="companynameIDinfo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">统一社会信用代码：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="creditcodeIDinfo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>登录密码：</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control"  placeholder="" id="loginpasswordIDinfo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>确认密码：</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control"  placeholder="" id="loginAffirmpasswordIDinfo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="col-sm-9 line-dashed"></p>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>真实姓名：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="realnameIDinfo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>移动电话 ：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="phoneIDinfo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">电子邮箱：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="emailIDinfo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span>*</span>验证码：</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control"  placeholder="" id="authCode2">
+                    </div>
+                    <a class="col-sm-1 verify-box"> <img class="register-verification-img"></a>
+                    <a class="col-sm-2 a-exchange fl" onclick="registerVef()">看不清？换一张</a>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="comChkAgree" type="checkbox"> 我已阅读并同意<a>《数据开放授权协议》</a>
+                    </label>
+                </div>
+            </form>
+            <div class="btn-line">
+                <div id="comMsg" class="feedback-error register-left"></div>
+                <button type="button" class="btn btn-primary register-now" onclick="getInfoData()"><i class="iconfont icon-queding"></i> 立即注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="footer-margin"></div>
+<div class="footer">
+	<div class="footer-t">
+		<p class="footer-t1">
+			<a href="#">友情链接</a>
+			<span>|</span>
+			<a href="#">服务条款</a>
+			<span>|</span>
+			<a href="#">隐私政策</a>
+			<span>|</span>
+			<a href="#">版权声明</a>
+			<span>|</span>
+			<a href="#">关于我们</a>
+		</p>
+		<p class="footer-t2">
+			<span>主办单位：XXX人民政府</span>
+			<span>承办单位：XXX经济和信息化委员会</span>
+			<span>技术支持：九次方大数据信息集团有限公司</span>
+		</p>
+	</div>
+	<div class="footer-b">备案编号：XXXXXXXXXXXXX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建议使用1920X1080分辨率  IE9.0以上版本浏览器</div>
+</div>
+</body>
+<!--IE8只能支持jQuery1.9-->
+<script src="http://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
+<script src="../assets/js/common/supportIE.js"></script>
+<script src="../assets/js/common/handlebars.js"></script>
+<script src="../assets/js/common/common.js"></script>
+<script src="../assets/js/user/register.js"></script>
+</html>

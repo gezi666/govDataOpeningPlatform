@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>资源目录结果</title>
+    <!-- <link type="text/css" href="../../css/iconfont.css" rel="stylesheet"> -->
+<link type="text/css" href="../assets/css/commonn.css" rel="stylesheet">
+<link type="text/css" href="../assets/css/iconfont.css" rel="stylesheet">
+    <link href="../assets/css/catalog.css" rel="stylesheet">
+    <link href="../assets/css/searchResult.css" rel="stylesheet">
+</head>
+<body class="catalog">
+<div class="header">
+	<div class="wapper cf">
+		<div class="head-logo">
+			<p class="head-logo-t">政务数据开放平台</p>
+			<p class="head-logo-b">Open Goverment Data Platform</p>
+		</div>
+		<div class="head-login">
+			<a href="javascript:;" class="head-login-txt">登录</a>
+			<span>/</span>
+			<a href="../user/register.html">注册</a>
+			<div class="head-login-dis">
+                <em class="jiantou"></em>
+                <h2>登录</h2>
+                <div class="head-login-input">
+                    <span>用户名：</span>
+                    <input id="userName" type="text" name="" placeholder="请输入您的用户名">
+                </div>
+                <div class="head-login-input">
+                    <span>密　码：</span>
+                    <input id="passWord" type="password" name="" placeholder="请输入您的密码">
+                </div>
+                <div class="head-login-input2">
+                    <input id="verification" type="text" name="" onkeyup="keyLogin()">
+                    <img id="verification-img">
+                    <i class="iconfont icon-shuaxin" onclick="User.loginVef()"></i>
+                </div>
+                <div class="head-login-btn"><input type="button" name="" value="登录" id="btnSubmit" onclick="User.loginConfirm()"></div>
+                <div class="login-erroy"></div>
+            </div>
+		</div>
+		<div class="head-user"><a href="../user/info.html" class="head-username"></a> / <a href="javascript:;" onclick="User.signOut()">退出登录</a></div>
+		<ul class="nav">
+			<li class="index"><a href="../index/index.html">首页</a></li>
+			<li class="catalog ding-yi-yi-ge-class"><a href="../catalog/index.html">资源目录</a></li>
+			<li class="statistics ding-yi-yi-ge-class"><a href="../statistics/index.html">开放统计</a></li>
+			<li class="helpexchange"><a href="../helpexchange/index.html">互助交流</a></li>
+		</ul>
+	</div>
+</div>
+<div class="main">
+    <div class="content-wrap clearfix">
+        <div class="indexes clearfix">
+            <div class="crumb fl">
+                当前位置：<a class="to-page" href="../index/index.html" title='返回首页'>首页</a>&nbsp;&gt;&nbsp;搜索结果
+            </div>
+            <div class="search-con fr clearfix">
+                <input class="search-txt fl" type="text" placeholder="请输入信息资源名称" onkeyup="btnSearch()">
+                <span class="search-btn fr" onclick='getListByInput()'>
+                    <i class="search-ico iconfont icon-chaxun"></i>
+                </span>
+            </div>
+        </div>
+        <div class="con result-wrap clearfix">
+            <div class="list-con fl">
+                <div class="list-wrap">
+                    <div class="sort-wrap clearfix">
+                        <span class="result-label fl">搜索结果</span>
+                        <p class="result fr">为您找到<span class="result-count">0</span>条记录</p>
+                    </div>
+                    <div id="list-wrap1"></div>
+                    <script id="list-wrap1-template" type="text/x-handlebars-template">
+                        {{#if data}}
+                        <ul class="list-item-wrap">
+                            {{#each data}}
+                            <li class="list-item">
+                                <div class="title-wrap">
+                                    <a href="../catalog/details.html?id={{id}}" class="title" target="_blank"
+                                       title='{{name}}'>{{name}}</a>
+                                </div>
+                                <div class="info-wrap clearfix">
+                                    <div class="details-wrap fl">
+                                        <p class="briefly" title='{{absractinfo}}'>{{handleEmpty absractinfo "--"}}</p>
+                                        <ul class="info-resources clearfix">
+                                            <li class="provider">
+                                                <span class="info-label">信息资源提供方：</span>
+                                                <span class="info-value" title="{{providedept}}">{{handleEmpty providedept "--"}}</span>
+                                            </li>
+                                            <li class="catalog">
+                                                <span class="info-label">信息资源目录：</span>
+                                                <span class="info-value" title="{{providedeptchild}}">{{handleEmpty providedeptchild "--"}}</span>
+                                            </li>
+                                            <li class="type">
+                                                <span class="info-label">共享方式：</span>
+                                                <span class="info-value">{{handleSharedMode shartype}}</span>
+                                            </li>
+                                            <li class="publish-time">
+                                                <span class="info-label">发布时间：</span>
+                                                <span class="info-value">{{handleEmpty createtime "--"}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <ul class="statistics-wrap clearfix">
+                                    <li class="statistics-visit">
+                                        <p class="label-wrap">
+                                            <i class="iconfont icon-yanjing"></i>
+                                            <span class="statistics-label">访问量：</span>
+                                            <span class="statistics-value visit">{{handleEmpty accesscount 0}}</span>
+                                        </p>
+                                    </li>
+                                    <li class="statistics-use">
+                                        <p class="label-wrap">
+                                            <i class="iconfont icon-shujutongji"></i>
+                                            <span class="statistics-label">下载量：</span>
+                                            <span class="statistics-value visit">{{handleEmpty downnum 0}}</span>
+                                        </p>
+                                    </li>
+                                    <li class="statistics-data">
+                                        <p class="label-wrap">
+                                            <i class="iconfont icon-shuju"></i>
+                                            <span class="statistics-label">调用量：</span>
+                                            <span class="statistics-value visit">{{handleEmpty callnum 0}}</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{else}}
+                        <div class="no-data">
+                            <div class="no-data-img"></div>
+                            <p class="no-data-txt">很抱歉没有找到匹配的内容，请更换搜索关键字再试试吧~~</p>
+                        </div>
+                        {{/if}}
+                    </script>
+                </div>
+                <div class="page-wrap clearfix">
+                    <div class="pagination fr clearfix"></div>
+                    <span class="total-count fr">共0页，每页0条</span>
+                </div>
+            </div>
+            <div class="index-list fr">
+                <div id="newresources" class="index-list-module"></div>
+                <script id="newresources-template" type="text/x-handlebars-template">
+                    <h3 class="clearfix">
+                        <span>最新资源</span>
+                        <a href="../catalog/index.html?sort=0">更多>></a>
+                    </h3>
+                    <ul>
+                        {{#each this}}
+                        <li>
+                            <a href="../catalog/details.html?id={{id}}" title="{{absractinfo}}">{{absractinfo}}</a>
+                            <span>{{createtime}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </script>
+                <div id="hotresources" class="index-list-module"></div>
+                <script id="hotresources-template" type="text/x-handlebars-template">
+                    <h3 class="clearfix">
+                        <span>热门资源</span>
+                        <a href="../catalog/index.html?sort=1">更多>></a>
+                    </h3>
+                    <ul>
+                        {{#each this}}
+                        <li>
+                            <a href="../catalog/details.html?id={{id}}" title="{{absractinfo}}">{{absractinfo}}</a>
+                            <span>{{createtime}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </script>
+                <div id="recommresources" class="index-list-module lastchild"></div>
+                <script id="recommresources-template" type="text/x-handlebars-template">
+                    <h3 class="clearfix">
+                        <span>推荐资源</span>
+                        <a href="../catalog/index.html?sort=2">更多>></a>
+                    </h3>
+                    <ul>
+                        {{#each this}}
+                        <li>
+                            <a href="../catalog/details.html?id={{id}}" title="{{absractinfo}}">{{absractinfo}}</a>
+                            <span>{{createtime}}</span>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-margin"></div>
+<div class="footer">
+	<div class="footer-t">
+		<p class="footer-t1">
+			<a href="#">友情链接</a>
+			<span>|</span>
+			<a href="#">服务条款</a>
+			<span>|</span>
+			<a href="#">隐私政策</a>
+			<span>|</span>
+			<a href="#">版权声明</a>
+			<span>|</span>
+			<a href="#">关于我们</a>
+		</p>
+		<p class="footer-t2">
+			<span>主办单位：XXX人民政府</span>
+			<span>承办单位：XXX经济和信息化委员会</span>
+			<span>技术支持：九次方大数据信息集团有限公司</span>
+		</p>
+	</div>
+	<div class="footer-b">备案编号：XXXXXXXXXXXXX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;建议使用1920X1080分辨率  IE9.0以上版本浏览器</div>
+</div>
+</body>
+<!--IE8只能支持jQuery1.9-->
+<script src="http://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
+<script src="../assets/js/common/supportIE.js"></script>
+<script src="../assets/js/common/handlebars.js"></script>
+<script src="../assets/js/common/common.js"></script>
+<script src="../assets/js/common/jquery.pagination.js"></script>
+<script src="../assets/js/searchResult/index.js"></script>
+</html>
